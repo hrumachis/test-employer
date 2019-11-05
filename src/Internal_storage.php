@@ -1,6 +1,6 @@
 <?php
-  require_once('./Text_file.php');
-  require_once('./String_util.php');
+  require_once('Text_file.php');
+  require_once('String_util.php');
 
   /**
    * Internal_storage
@@ -10,7 +10,10 @@
   class Internal_storage {
     protected $_storage_path = "";
 
-    function __construct(string $path) {
+    /**
+     * @param string $path
+     */
+    function __construct($path) {
       if (file_exists($path) !== true) {
         die("The file $path does not exist");
       }
@@ -21,10 +24,10 @@
     /**
      * Read storage names, return as array
      * 
-     * @return string[]
+     * @return array
      */
     public function get_names() {
-      return Text_file::read($this->_storage_path);
+      return String_util::get_lines(Text_file::read($this->_storage_path));
     }
 
     /**
@@ -32,11 +35,20 @@
      * 
      * @param string $name
      */
-    public function insert(string $name) {
-      // Check if name exist in storage
-      if ($this->is_existing($name) !== true) {
-        Text_file::write($this->_storage_path, $name . "\n");
+    public function insert($name) {
+      // Check if name is empty
+      if (isset($name) && $name === "") {
+        return false;
       }
+
+      // Check if name exist in storage
+      if ($this->is_existing($name) === true) {
+        return false;
+      }
+
+      Text_file::write($this->_storage_path, $name . "\n");
+
+      return true;
     }
 
     /**
@@ -45,8 +57,8 @@
      * @param string $name
      * @return boolean
      */
-    public function is_existing(string $name) {
-      $data = String_util::get_lines($this->get_names());
+    public function is_existing($name) {
+      $data = $this->get_names();
 
       foreach($data as $line){
         if ($line === $name) {

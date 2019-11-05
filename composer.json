@@ -1,0 +1,17 @@
+{
+  "name": "euand_000/test-employer",
+  "authors": [
+      {
+          "name": "Hrumachis",
+          "email": "eu.andrius.mikalauskas@gmail.com"
+      }
+  ],
+  "autoload": {
+    "classmap": [
+        "src/"
+    ]
+  },
+  "require-dev": {
+      "phpunit/phpunit": "5.6"
+  }
+}

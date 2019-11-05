@@ -9,9 +9,9 @@
      * Returns string new lines
      * 
      * @param string
-     * @return string[]
+     * @return array
      */
-    static public function get_lines(string $string) {
+    static public function get_lines($string) {
       return preg_split("/((\r?\n)|(\r\n?))/", $string);
     }
   }
