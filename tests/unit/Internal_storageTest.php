@@ -1,6 +1,6 @@
 <?php
   class Internal_storageTest extends \PHPUnit_Framework_TestCase {
-    public function testThatGetNamesReturnsCorrectList() {
+    public function test_that_get_names_returns_correct_list() {
       require_once('src/Config.php');
       require_once('src/Internal_storage.php');
 
@@ -11,7 +11,7 @@
       $this->assertEquals(count($names), 1);
     }
 
-    public function testThatInsertAddsNameToStorageAfterPassingGuardStatements() {
+    public function test_that_insert_adds_name_to_storage_after_passing_guard_statements() {
       require_once('src/Config.php');
       require_once('src/Internal_storage.php');
 
@@ -25,7 +25,7 @@
       $this->assertEquals($internal_storage->insert('Harry'), false);
     }
 
-    public function testThatIsExistingReturnsTrueWhenNameIsInStorage() {
+    public function test_that_is_existing_returns_true_when_name_is_in_storage() {
       require_once('src/Config.php');
       require_once('src/Internal_storage.php');
 

@@ -1,6 +1,6 @@
 <?php
   class EmployerTest extends \PHPUnit_Framework_TestCase {
-    public function testThatEmployingExperiencedCandidateReturnTrue() {
+    public function test_that_employing_experienced_candidate_return_true() {
       require_once('src/Config.php');
       require_once('src/Employer.php');
 
@@ -10,7 +10,7 @@
       $this->assertEquals($employer->employ($candidate), true);
     }
 
-    public function testThatEmployingUnexperiencedCandidateReturnFalse() {
+    public function test_that_employing_unexperienced_candidate_return_false() {
       require_once('src/Config.php');
       require_once('src/Employer.php');
 
