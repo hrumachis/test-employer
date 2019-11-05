@@ -13,7 +13,7 @@
   class App {
     function __construct() {
       $employer = new Employer(Config::CANDIDATES_DATA_PATH());
-      $candidate = new Job_candidate("Mark2", false);
+      $candidate = new Job_candidate("Mark", false);
       $employer->employ($candidate);
     }
   }
