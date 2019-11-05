@@ -12,10 +12,16 @@
       $this->experienced = $experienced;
     }
 
+    /**
+     * @return string
+     */
     public function get_name() {
       return $this->name;
     }
 
+    /**
+     * @return boolean
+     */
     public function is_experienced() {
       return $this->experienced === true;
     }
